@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Double Spread Sample</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #display {
+        position: absolute;
+        margin: 1em;
+      }
+      #former {
+        width: 360px;
+        height: 440px;
+        background-color: gray;
+        border: dashed 1px;
+      }
+      #latter {
+        position: absolute;
+        left: 362px;
+        top: 0;
+        width: 360px;
+        height: 440px;
+        background-color: gray;
+        border: dashed 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Double Spread Sample</h1>
+    <a href="javascript:void(0)" rel="previous" id="prev">Previous</a>
+    <a href="javascript:void(0)" id="prevOne">Previous One</a>
+    <a href="javascript:void(0)" id="nextOne">Next One</a>
+    <a href="javascript:void(0)" rel="next" id="next">Next</a>
+    <section id="display">
+      <article class="page" id="former"></article>
+      <article class="page" id="latter"></article>
+    </section>
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script type="text/javascript" src="scripts/double-spread.js"></script>
+    <script type="text/javascript">
+
+former = new DoubleSpread.View($("#former"));
+latter = new DoubleSpread.View($("#latter"));
+former.model = new DoubleSpread.Model(1);
+latter.model = new DoubleSpread.Model(2);
+DoubleSpread.Controller.views = [former, latter];
+DoubleSpread.Controller.refresh();
+
+    </script>
+  </body>
+</html>
