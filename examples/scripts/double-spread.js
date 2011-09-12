@@ -7,6 +7,7 @@ DoubleSpread = {
                 number = this.pages;
             for (var i in this.views) {
                 var view = this.views[i];
+                // To do: try and catch exception thrown by model
                 view.model = view.model.previous(number);
 	    }
             this.refresh();
@@ -16,6 +17,7 @@ DoubleSpread = {
                 number = this.pages;
             for (var i in this.views) {
                 var view = this.views[i];
+                // To do: try and catch exception thrown by model
                 view.model = view.model.next(number);
 	    }
             this.refresh();
@@ -40,12 +42,14 @@ DoubleSpread = {
 };
 DoubleSpread.Model.prototype.previous = function(number) {
     // Dummey implementation
+    // Should throw exception when no page
     if (number === undefined)
         number = 1;
     return new DoubleSpread.Model(this.id - number);
 }
 DoubleSpread.Model.prototype.next = function(number) {
     // Dummey implementation
+    // Should throw exception when no page
     if (number === undefined)
         number = 1;
     return new DoubleSpread.Model(this.id + number);

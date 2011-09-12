@@ -46,8 +46,22 @@ former = new DoubleSpread.View($("#former"));
 latter = new DoubleSpread.View($("#latter"));
 former.model = new DoubleSpread.Model(1);
 latter.model = new DoubleSpread.Model(2);
-DoubleSpread.Controller.views = [former, latter];
-DoubleSpread.Controller.refresh();
+Controller = DoubleSpread.Controller;
+Controller.views = [former, latter];
+Controller.refresh();
+
+$("#prev").click(function(event) {
+    DoubleSpread.Controller.back();
+});
+$("#prevOne").click(function(event) {
+    DoubleSpread.Controller.back(1);
+});
+$("#nextOne").click(function(event) {
+    DoubleSpread.Controller.forward(1);
+});
+$("#next").click(function(event) {
+    DoubleSpread.Controller.forward();
+});
 
     </script>
   </body>
